@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 💜</title>
+
+<script>
+const password = "lumi-lavender";
+const entered = prompt("🔒 This page is protected.\n\nEnter the password:");
+
+if (entered !== password) {
+    document.write(`
+    <div style="display:flex;justify-content:center;align-items:center;height:100vh;
+    font-family:Segoe UI,sans-serif;background:#f3e8ff;color:#7a2e9c;text-align:center;">
+        <div>
+            <h2>❌ Access Denied</h2>
+            <p>Incorrect password.</p>
+        </div>
+    </div>
+    `);
+    throw new Error("Access Denied");
+}
+</script>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+background:linear-gradient(160deg,#f3e8ff 0%,#e6d5f7 40%,#d9c2f0 100%);
+font-family:'Segoe UI',system-ui,sans-serif;
+overflow:hidden;
+position:relative;
+}
+
+.bg-flower{
+position:absolute;
+font-size:22px;
+opacity:.5;
+animation:float 10s infinite ease-in;
+}
+
+@keyframes float{
+0%{
+transform:translateY(110vh) rotate(0deg) scale(.6);
+opacity:0;
+}
+10%{
+opacity:.6;
+}
+100%{
+transform:translateY(-10vh) rotate(360deg) scale(1.1);
+opacity:0;
+}
+}
+
+.top-garland{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+text-align:center;
+font-size:26px;
+padding-top:14px;
+letter-spacing:6px;
+z-index:1;
+opacity:.9;
+}
+
+.card{
+background:rgba(255,255,255,.55);
+backdrop-filter:blur(6px);
+border:1px solid rgba(180,120,220,.35);
+border-radius:28px;
+padding:52px 30px 40px;
+text-align:center;
+max-width:380px;
+width:90%;
+box-shadow:0 10px 50px rgba(150,90,200,.25);
+z-index:2;
+animation:popIn .8s ease-out;
+position:relative;
+}
+
+@keyframes popIn{
+from{
+opacity:0;
+transform:scale(.9) translateY(20px);
+}
+to{
+opacity:1;
+transform:scale(1) translateY(0);
+}
+}
+
+.bouquet{
+font-size:52px;
+margin-bottom:10px;
+animation:sway 3s infinite ease-in-out;
+display:inline-block;
+}
+
+@keyframes sway{
+0%,100%{
+transform:rotate(-4deg);
+}
+50%{
+transform:rotate(4deg);
+}
+}
+
+h1{
+color:#7a2e9c;
+font-size:23px;
+margin-bottom:10px;
+font-weight:700;
+}
+
+.flower-row{
+font-size:20px;
+margin-bottom:20px;
+letter-spacing:8px;
+}
+
+.btn{
+display:inline-block;
+background:linear-gradient(135deg,#b183d9,#8a4fc2);
+color:white;
+text-decoration:none;
+padding:14px 38px;
+border-radius:50px;
+font-size:15px;
+font-weight:600;
+box-shadow:0 8px 24px rgba(140,80,200,.4);
+transition:.2s;
+}
+
+.btn:hover{
+transform:scale(1.05);
+}
+
+.footer-note{
+margin-top:22px;
+font-size:11px;
+color:rgba(120,80,150,.55);
+}
+
+.corner-tulip{
+position:absolute;
+font-size:40px;
+opacity:.8;
+}
+
+.tl{
+top:-18px;
+left:-10px;
+transform:rotate(-20deg);
+}
+
+.tr{
+top:-18px;
+right:-10px;
+transform:rotate(20deg) scaleX(-1);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="top-garland">🌷 🌸 💐 🌸 🌷</div>
+
+<div class="card">
+
+<div class="corner-tulip tl">🌷</div>
+<div class="corner-tulip tr">🌷</div>
+
+<div class="bouquet">💐</div>
+
+<div class="flower-row">🌷 🌸 🌷</div>
+
+<h1>This version of me is<br>just for you</h1>
+
+<a class="btn"
+href="https://youtu.be/-SfZXFVlVvI"
+target="_blank">
+Tap to Watch 💜
+</a>
+
+<div class="footer-note">
+made with too many retakes 😂 and a little bit of courage
+</div>
+
+</div>
+
+<script>
+const items=["🌷","🌸","💮","🌼","💐"];
+
+for(let i=0;i<22;i++){
+
+const el=document.createElement("div");
+
+el.className="bg-flower";
+
+el.textContent=items[Math.floor(Math.random()*items.length)];
+
+el.style.left=Math.random()*100+"vw";
+
+el.style.animationDelay=Math.random()*10+"s";
+
+el.style.animationDuration=(7+Math.random()*5)+"s";
+
+document.body.appendChild(el);
+
+}
+</script>
+
+</body>
+</html>
